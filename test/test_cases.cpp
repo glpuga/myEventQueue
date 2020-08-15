@@ -103,7 +103,7 @@ TEST_F(QueueEventTest, TestsPostedEventsGetReceived) {
 
   uut.postEvent();
 
-  // Wait some time to let the forwarde thread wake up and do its job
+  // Wait some time to let the forwarder thread wake up and do its job
   std::this_thread::sleep_for(wait_interval_);
 }
 

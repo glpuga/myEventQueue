@@ -26,6 +26,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install cpplint
 
+RUN pip3 install cmake-format
+
 RUN mkdir /workspace
 
 WORKDIR /workspace

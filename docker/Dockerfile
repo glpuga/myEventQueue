@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get update && apt-get install -y \
 	build-essential \
-	cmake 
+	cmake \
+	ccache
 
 RUN apt-get update && apt-get install -y \
 	clang \
@@ -23,6 +24,10 @@ RUN apt-get update && apt-get install -y \
 	clang-tidy \
 	python3-pip \
 	cppcheck
+
+RUN apt-get update && apt-get install -y \
+	graphviz \
+	doxygen
 
 RUN pip3 install cpplint
 

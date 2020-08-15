@@ -37,7 +37,18 @@ endif()
 
 # ---------------
 
+include(cmake/ccache.cmake)
+
+include(cmake/doxygen.cmake)
+enable_doxygen()
+
+include(cmake/compiler_options.cmake)
+
+# ---------------
+
 add_library(${PROJECT_NAME} src/EventQueue.cpp)
+
+set_target_compiler_options(${PROJECT_NAME})
 
 target_compile_options(${PROJECT_NAME} PRIVATE -Werror -Wall -Wextra
                                                -Wno-missing-field-initializers)
@@ -48,7 +59,7 @@ set_target_properties(
   ${PROJECT_NAME}
   PROPERTIES
     CXX_CLANG_TIDY
-    "clang-tidy;-header-filter=.;-checks=*,-fuchsia-overloaded-operator,-readability-else-after-*,-cert-err58-cpp,-llvm-header-guard"
+    "clang-tidy;-header-filter=.;-checks=*,-fuchsia-*,-google-*,-zircon-*,-abseil-*,-modernize-use-trailing-return-type,-llvm-*"
     CXX_CPPCHECK
     "cppcheck;--language=c++;--std=c++14;--enable=warning,style,performance,portability"
     CXX_CPPLINT "cpplint;--linelength=120;--filter=+,-build/c++11")

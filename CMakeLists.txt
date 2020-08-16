@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.10.2)
-project(event_queue VERSION 0.1.0)
+
+project(
+  myEventQueue
+  VERSION "${project_version}"
+  DESCRIPTION "${project_description}"
+  LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
